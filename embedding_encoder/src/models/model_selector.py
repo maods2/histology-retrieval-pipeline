@@ -4,6 +4,7 @@ from models.efficient_netb0 import get_efficient_netb0, get_efficient_netb0_enco
 # from models.vit import get_vit
 from models.auto_encoders import get_conv_encoder
 from models.SwaV import get_swav
+import torch
 
 def get_model(argument):
     
@@ -25,6 +26,9 @@ def get_model(argument):
     elif argument == "swav":
         return get_swav()
     
+    elif argument == "dino":
+        dinov2_vitl14_lc = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitl14_lc')
+        return dinov2_vitl14_lc
 
     
         

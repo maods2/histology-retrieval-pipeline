@@ -24,7 +24,7 @@ config = Dynaconf(
     root_path='.',
 )
 
-
+# config.epochs = 1
 if args.pipeline == "train":
     train_and_save_embeddings(config)
 

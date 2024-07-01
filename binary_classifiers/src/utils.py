@@ -16,7 +16,7 @@ from typing import Any
 
 
 from binary_classifiers.src.metrics import Metrics
-from binary_classifiers.src.model import Net
+from binary_classifiers.src.model import Net, Dino
 
 def train_epoch(loader, model, optimizer, loss_fn, scaler, device):
     model.train()
@@ -255,6 +255,6 @@ def get_model(model_name, settings, params):
     if model_name == "efficientnet":
         return Net(net_version=settings.model.net_version, num_classes=2, settings=settings, freeze=params["freeze"]).to(settings.config.DEVICE)
     elif model_name == "dino":
-        pass
+       return Dino(num_classes=2, settings=settings, freeze=params["freeze"]).to(settings.config.DEVICE)
     else:
         raise Exception("None model defined")

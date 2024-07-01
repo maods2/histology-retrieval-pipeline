@@ -33,9 +33,9 @@ def generate_new_stain(config):
                 os.mkdir(save_dir_path_mod)
 
             
-            for img_path in img_path_list:
-                img = randstainna(cv2.imread(str(img_path)))
-                save_img_path = f'{save_dir_path_mod}/{stain}_{str(img_path).split('\\')[-1]}' 
-                print(save_img_path)
-                cv2.imwrite(save_img_path,img)
+            # for img_path in img_path_list:
+            #     img = randstainna(cv2.imread(str(img_path)))
+            #     save_img_path = f'{save_dir_path_mod}/{stain}_{str(img_path).split('/')[-1]}' 
+            #     print(save_img_path)
+            #     cv2.imwrite(save_img_path,img)
 

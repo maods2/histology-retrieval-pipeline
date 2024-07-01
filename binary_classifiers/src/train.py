@@ -44,8 +44,8 @@ torch.backends.cudnn.benchmark = True
 opt = BaseOptions().parse()
 PARAMS: dict[str, Any] = load_training_parameters(opt.config_file)
 wandb.login(key=PARAMS['wandb_key'])
-PARAMS['n_folds'] = 5
-PARAMS['num_epochs'] = 3
+# PARAMS['n_folds'] = 5
+# PARAMS['num_epochs'] = 3
 
 settings = Dynaconf(
     envvar_prefix="DYNACONF",

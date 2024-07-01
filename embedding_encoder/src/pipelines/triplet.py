@@ -10,7 +10,7 @@ from torch.utils.data import Dataset
 import torch
 from torch import nn
 import torch.optim as optim
-
+from tqdm import tqdm
 
 class TripletData(Dataset):
     def __init__(self, path, transform, config):
@@ -79,8 +79,8 @@ def train_triplet(model, config):
         transforms.Resize((224, 224)),
         transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
-        transforms.Normalize((0.4914, 0.4822, 0.4465),
-                             (0.2023, 0.1994, 0.2010)),
+        transforms.Normalize((0.485, 0.456, 0.406),
+                             (0.229, 0.224, 0.225)),
     ])
     train_data = TripletData(config.data_path, transform, config)
     train_loader = torch.utils.data.DataLoader(
@@ -101,7 +101,7 @@ def train_triplet(model, config):
         model.train()
         epoch_loss = 0.0
 
-        for data in train_loader:
+        for data in tqdm(train_loader):
 
             optimizer.zero_grad()
             x1, x2, x3 = data
@@ -114,24 +114,24 @@ def train_triplet(model, config):
             loss.backward()
             optimizer.step()
 
-        epoch_val_loss = 0.0
-        model.eval()
-        for data in val_loader:
-            with torch.no_grad():
+        # epoch_val_loss = 0.0
+        # model.eval()
+        # for data in val_loader:
+        #     with torch.no_grad():
 
-                x1, x2, x3 = data
-                e1 = model(x1.to(device))
-                e2 = model(x2.to(device))
-                e3 = model(x3.to(device))
+        #         x1, x2, x3 = data
+        #         e1 = model(x1.to(device))
+        #         e2 = model(x2.to(device))
+        #         e3 = model(x3.to(device))
 
-                loss = triplet_loss(e1, e2, e3)
-                epoch_val_loss += loss
+        #         loss = triplet_loss(e1, e2, e3)
+        #         epoch_val_loss += loss
 
 
 
         train_loss.append(epoch_loss.item())
-        val_loss.append(epoch_val_loss.item())
+        # val_loss.append(epoch_val_loss.item())
 
-        print(f"Epoch {epoch+1:02} - Train Loss: {epoch_loss.item()}, Validation Loss: {epoch_val_loss.item()}")
+        print(f"Epoch {epoch+1:02} - Train Loss: {epoch_loss.item()}")
 
     return optimizer, {"train_loss":train_loss,"val_loss":val_loss}

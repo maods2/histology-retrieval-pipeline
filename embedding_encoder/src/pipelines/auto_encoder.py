@@ -13,7 +13,7 @@ import torch
 import torchvision.transforms as T
 import torch.optim as optim
 import sys
-
+from tqdm import tqdm
 
 
 class FolderDataset(Dataset):
@@ -43,8 +43,8 @@ class FolderDataset(Dataset):
             given index, twice (i.e duplicated). This will be used to train the autoencoder, since
             its objective is for the decoder to learn to reverse the transformation done by the encoder.
         """
-        img_loc = os.path.join(self.main_dir, self.all_imgs[idx])
-        image = Image.open(img_loc).convert("RGB")
+        # img_loc = os.path.join(self.main_dir, self.all_imgs[idx])
+        image = Image.open(self.all_imgs[idx]).convert("RGB")
 
         if self.transform is not None:
             tensor_image = self.transform(image)
@@ -56,6 +56,7 @@ class FolderDataset(Dataset):
         data_dir = Path(main_dir)
         images_path = [file for file in data_dir.glob(
             '**/*') if file.suffix.lower()[1:] in image_extensions]
+        # print(images_path)
         return images_path
     
 
@@ -75,7 +76,7 @@ def train_step(encoder, decoder, train_loader, loss_fn, optimizer, device):
     encoder.train()
     decoder.train()
 
-    for batch_idx, (train_img, target_img) in enumerate(train_loader):
+    for batch_idx, (train_img, target_img) in enumerate(tqdm(train_loader)):
         # Move images to device
         train_img = train_img.to(device)
         target_img = target_img.to(device)
@@ -137,8 +138,8 @@ def train_auto_encoder(model, config):
     transform = T.Compose([
         T.Resize((224, 224)),
         T.ToTensor(),
-        T.Normalize((0.4914, 0.4822, 0.4465),
-                                (0.2023, 0.1994, 0.2010)),
+        T.Normalize((0.485, 0.456, 0.406),
+                             (0.229, 0.224, 0.225)),
     ])
 
     full_dataset = FolderDataset(config.data_path, transform) # Create folder dataset.

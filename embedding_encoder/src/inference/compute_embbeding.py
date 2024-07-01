@@ -1,11 +1,13 @@
 from utils.dataset import ImageDataLoader
 from models.model_selector import get_model
 from torch.utils.data import DataLoader
+from pathlib import Path
 import numpy as np
 import torch
 import pickle 
 # from options import BaseOptions, Config, load_parameters
 from utils.utils import slice_image_paths, generate_checkpoint_file
+from tqdm import tqdm
 
 def load_model_weights(model, model_path,device):
     checkpoint = torch.load(model_path,map_location=torch.device(device))
@@ -25,11 +27,13 @@ def compute_embeddings(config, mode, model=None):
 
     # select embedding model training
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(f'Device: {device}')
 
     if model == None:
         model = get_model(config.model)
-        checkpoint_file = generate_checkpoint_file(config.model_name, search_dir=config.checkpoint_dir)
-        model = load_model_weights(model,checkpoint_file , device)
+        if config.load_checkpoint:
+            checkpoint_file = generate_checkpoint_file(config.model_name, search_dir=config.checkpoint_dir)
+            model = load_model_weights(model,checkpoint_file , device)
 
     model.eval()
     model.to(device)
@@ -40,7 +44,7 @@ def compute_embeddings(config, mode, model=None):
     labels = []
     feature_embeddings = np.empty((0, config.embedding_dim))
 
-    for i, (x, y, path, label) in enumerate(dataloader):
+    for i, (x, y, path, label) in enumerate(tqdm(dataloader)):
         x = x.to(device=device)
         with torch.no_grad():
             batch_features = model(x)
@@ -59,6 +63,8 @@ def compute_embeddings(config, mode, model=None):
         "paths": paths,
         "classes":labels
     }
+    path = f'{config.save_embedding_path}/{config.prefix}'
+    Path(path).mkdir(parents=True, exist_ok=True)
 
-    with open(f'{config.prefix}_{config.save_embedding_path}_{mode}.pickle', 'wb') as pickle_file:
+    with open(f'{path}/{config.model_name}_{mode}.pickle', 'wb') as pickle_file:
         pickle.dump(data_dict, pickle_file)

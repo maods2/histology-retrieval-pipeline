@@ -36,6 +36,10 @@ def get_efficient_netb0_encoder():
         )
     return model
 
-
+if __name__ == "__main__":
+    backbone = EfficientNet.from_pretrained('efficientnet-b0')
+    for name, param in backbone.named_parameters():
+        if  name.startswith("_fc"):
+            print(param.requires_grad) 
 
 # Create an instance of the custom encoder

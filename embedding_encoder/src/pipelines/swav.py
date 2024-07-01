@@ -5,6 +5,7 @@ from lightly.models.modules import SwaVProjectionHead, SwaVPrototypes
 from lightly.transforms.swav_transform import SwaVTransform
 from lightly.data import LightlyDataset
 from lightly import loss
+from tqdm import tqdm
 
 def train_swav(model, config):
 
@@ -42,7 +43,7 @@ def train_swav(model, config):
         
         epoch_loss = 0.0
         model.train()
-        for batch in train_loader:
+        for batch in tqdm(train_loader):
             views = batch[0]
             model.prototypes.normalize()
             multi_crop_features = [model(view.to(device)) for view in views]
