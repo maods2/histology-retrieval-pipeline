@@ -13,7 +13,7 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 from sklearn.model_selection import StratifiedKFold
 
-from src.model import Net
+
 from src.utils import (
      valid_epoch, 
      load_checkpoint, 
@@ -26,7 +26,8 @@ from src.utils import (
      set_gpu_mode, 
      measure_execution_time,
      load_training_parameters,
-     wandb_log_final_result
+     wandb_log_final_result,
+     get_model
 )
 from src.transforms import get_train_transform, get_test_transform
 from src.dataset import ImageFolderOverride
@@ -112,7 +113,7 @@ def main():
         print(f'Fold  {fold +1}')
 
         loss_fn = nn.CrossEntropyLoss()
-        model = Net(net_version=settings.model.net_version, num_classes=2, freeze=PARAMS["freeze"]).to(settings.config.DEVICE)
+        model = get_model(opt.model_name, settings, PARAMS)
         optimizer = optim.Adam(model.parameters(), lr=PARAMS['learning_rate'])
         scaler = torch.cuda.amp.GradScaler()
         # set_gpu_mode(model)

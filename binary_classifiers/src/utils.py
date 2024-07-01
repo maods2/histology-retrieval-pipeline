@@ -16,7 +16,7 @@ from typing import Any
 
 from config import settings
 from src.metrics import Metrics
-
+from src.model import Net
 
 def train_epoch(loader, model, optimizer, loss_fn, scaler, device):
     model.train()
@@ -227,9 +227,9 @@ def load_training_parameters(filename):
 
 def wandb_log_final_result(metrics:Metrics, loss: float, config):
 
-    wandb.log({"conf_mat" : wandb.plot.confusion_matrix(probs=None,
-                            y_true=metrics.y_true, preds=metrics.y_pred,
-                            class_names=config['classes'])})
+    # wandb.log({"conf_mat" : wandb.plot.confusion_matrix(probs=None,
+    #                         y_true=metrics.y_true, preds=metrics.y_pred,
+    #                         class_names=config['classes'])})
     
     # wandb.log({"pr" : wandb.plot.pr_curve(metrics.y_true, metrics.y_pred,
     #             labels=None, classes_to_plot=None)})
@@ -250,3 +250,11 @@ def wandb_log_final_result(metrics:Metrics, loss: float, config):
     #     'final_fscore': metrics.fscore,
     #     'final_kappa': metrics.kappa           
     #     })    
+
+def get_model(model_name, settings, params):
+    if model_name == "efficientnet":
+        return Net(net_version=settings.model.net_version, num_classes=2, freeze=params["freeze"]).to(settings.config.DEVICE)
+    elif model_name == "dino":
+        pass
+    else:
+        raise Exception("None model defined")

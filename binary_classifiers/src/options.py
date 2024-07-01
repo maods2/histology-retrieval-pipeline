@@ -7,6 +7,7 @@ class BaseOptions():
 
     def initialize(self):      
         self.parser.add_argument('--config_file', type=str, default='./config/default.yaml', help='# of test examples.')
+        self.parser.add_argument('--model_name', type=str, default='efficientnet', help='')
     
     def parse(self):
         self.initialize()

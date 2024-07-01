@@ -15,5 +15,5 @@ wandb_key: '273b6e50d83b95fd3a12d6544e5d48bf5afa49e2'
 wandb_save_checkpoint: True
 patience: 100
 model_name: '6_IC'
-data_dir: './data/binary/binary_6_IC'
+data_dir: './data/bracs/binary/binary_6_IC'
 classes: ['_others', '6_IC']
