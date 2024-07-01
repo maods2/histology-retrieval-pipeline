@@ -14,9 +14,9 @@ from pathlib import Path
 from torch import nn
 from typing import Any
 
-from config import settings
-from src.metrics import Metrics
-from src.model import Net
+
+from binary_classifiers.src.metrics import Metrics
+from binary_classifiers.src.model import Net
 
 def train_epoch(loader, model, optimizer, loss_fn, scaler, device):
     model.train()
@@ -85,13 +85,13 @@ def valid_epoch(loader, model, loss_fn=None, device="cuda"):
 
     
 
-def save_checkpoint(model, optimizer, create_timestamp_folder, metric_type, fold="",
+def save_checkpoint(model, optimizer,dataset, create_timestamp_folder, metric_type, fold="",
                     log_to_wandb: bool = False, checkpoint_artifact: wandb.Artifact | None = None):
-    if not os.path.exists('./artifacts'):
-        os.mkdir('./artifacts')
+    save_dir = Path(f'./artifacts/{dataset}')
+    save_dir.mkdir(parents=True, exist_ok=True)
     state = {'state_dict': model.state_dict(), 'optimizer': optimizer.state_dict()}
-    Path(f'./artifacts/{create_timestamp_folder}').mkdir(exist_ok=True)
-    filename=f"./artifacts/{create_timestamp_folder}/{fold}_fold_{metric_type}_checkpoint.pth.tar"
+    Path(f'./artifacts/{dataset}/{create_timestamp_folder}').mkdir(exist_ok=True)
+    filename=f"./artifacts/{dataset}/{create_timestamp_folder}/{fold}_fold_{metric_type}_checkpoint.pth.tar"
     # print("Saving checkpoint...")
     torch.save(state, filename)
     if log_to_wandb:
@@ -148,7 +148,7 @@ def create_timestamp_folder(model_name):
     return f'{model_name}_{folder_name}'
 
 
-def initialize_wandb(inputs: dict[str, Any], fold: int, folder_name: str, **kwargs):
+def initialize_wandb(settings, inputs: dict[str, Any], fold: int, folder_name: str, **kwargs):
     if inputs['wandb_on']:
         wandb.init(
             name=f'{folder_name}_{fold}', 
@@ -253,7 +253,7 @@ def wandb_log_final_result(metrics:Metrics, loss: float, config):
 
 def get_model(model_name, settings, params):
     if model_name == "efficientnet":
-        return Net(net_version=settings.model.net_version, num_classes=2, freeze=params["freeze"]).to(settings.config.DEVICE)
+        return Net(net_version=settings.model.net_version, num_classes=2, settings=settings, freeze=params["freeze"]).to(settings.config.DEVICE)
     elif model_name == "dino":
         pass
     else:

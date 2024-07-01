@@ -1,10 +1,10 @@
 from torch import nn
 from efficientnet_pytorch import EfficientNet
 
-from config import settings
+# from config import settings
 
 class Net(nn.Module):
-    def __init__(self, net_version, num_classes, freeze: bool = False):
+    def __init__(self, net_version, num_classes, settings, freeze: bool = False):
         super(Net, self).__init__()
         self.backbone = EfficientNet.from_pretrained('efficientnet-'+net_version)
         self.backbone._fc = nn.Sequential(

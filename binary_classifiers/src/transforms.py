@@ -5,7 +5,7 @@ import numpy as np
 
 from typing import Sequence
 
-from config import settings
+# from config import settings
 
 
 class PadToAspectRatio(A.ImageOnlyTransform):
@@ -87,7 +87,7 @@ def get_resize_transform(resize_mode: str, img_size: tuple[int, int])\
         raise ValueError(f"Invalid resize mode: '{resize_mode}'")
 
 
-def get_train_transform():
+def get_train_transform(settings):
     albumentations_t = A.Compose([
         get_resize_transform(settings.image.RESIZE_MODE, settings.image.IMG_SIZE),
         A.Normalize(mean=settings.image.MEAN, std=settings.image.STD),
@@ -142,7 +142,7 @@ def get_train_transform():
     return albumentations_t
 
 
-def get_test_transform():
+def get_test_transform(settings):
     albumentations_t = A.Compose([
         get_resize_transform(settings.image.RESIZE_MODE, settings.image.IMG_SIZE),
         A.Normalize(mean=settings.image.MEAN, std=settings.image.STD),

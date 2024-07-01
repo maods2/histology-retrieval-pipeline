@@ -14,7 +14,7 @@ from tqdm import tqdm
 from sklearn.model_selection import StratifiedKFold
 
 
-from src.utils import (
+from binary_classifiers.src.utils import (
      valid_epoch, 
      load_checkpoint, 
      save_checkpoint, 
@@ -29,10 +29,10 @@ from src.utils import (
      wandb_log_final_result,
      get_model
 )
-from src.transforms import get_train_transform, get_test_transform
-from src.dataset import ImageFolderOverride
-from src.options import BaseOptions
-from src.stopper import EarlyStopper
+from binary_classifiers.src.transforms import get_train_transform, get_test_transform
+from binary_classifiers.src.dataset import ImageFolderOverride
+from binary_classifiers.src.options import BaseOptions
+from binary_classifiers.src.stopper import EarlyStopper
 from dynaconf import Dynaconf
 
 
@@ -44,13 +44,12 @@ torch.backends.cudnn.benchmark = True
 opt = BaseOptions().parse()
 PARAMS: dict[str, Any] = load_training_parameters(opt.config_file)
 wandb.login(key=PARAMS['wandb_key'])
-PARAMS['n_folds'] = 2
-PARAMS['num_epochs'] = 1
+PARAMS['n_folds'] = 5
+PARAMS['num_epochs'] = 3
 
 settings = Dynaconf(
     envvar_prefix="DYNACONF",
-    settings_file=opt.settings_file,
-    # settings_file="binary_classifiers/settings_fiocruz.toml",
+    settings_file=f"./histology-retrieval-pipeline/binary_classifiers/settings_{opt.settings_file}.toml",
     root_path='.'
 )
 
@@ -83,10 +82,10 @@ def main():
     ## --- setup kfold cross-validation
     skfold = StratifiedKFold(n_splits=PARAMS['n_folds'], shuffle=True)
     full_dataset_train_mode = ImageFolderOverride(root=PARAMS['data_dir'],
-                                                  transform=get_train_transform(),
+                                                  transform=get_train_transform(settings),
                                                   target_transform=lambda index: index)
     full_dataset_val_mode = ImageFolderOverride(root=PARAMS['data_dir'],
-                                                transform=get_test_transform(),
+                                                transform=get_test_transform(settings),
                                                 target_transform=lambda index: index)
     binary_labels = [sample[1] for sample in full_dataset_train_mode.samples]
 
@@ -98,7 +97,7 @@ def main():
         early_stopper.reset()
 
         # start wandb connection
-        initialize_wandb(PARAMS, fold+1, artifact_folder,
+        initialize_wandb(settings, PARAMS, fold+1, artifact_folder,
                          train_dataset=len(train_ids),
                          val_dataset=len(val_ids))
 
@@ -151,12 +150,12 @@ def main():
 
             if max_val_accuracy < val_acc:
                 max_val_accuracy = val_acc
-                save_checkpoint(model, optimizer, artifact_folder, 'max_acc', fold,
+                save_checkpoint(model, optimizer, opt.settings_file, artifact_folder, 'max_acc', fold,
                                 log_to_wandb=False)
 
             if min_val_loss > val_loss:
                 min_val_loss = val_loss
-                save_checkpoint(model, optimizer, artifact_folder, 'min_loss', fold,
+                save_checkpoint(model, optimizer, opt.settings_file, artifact_folder, 'min_loss', fold,
                                 log_to_wandb=False)
 
 
