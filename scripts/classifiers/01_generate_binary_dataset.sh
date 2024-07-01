@@ -1,0 +1,2 @@
+python3 -m data.generate_binary_dataset data/fiocruz raw binary histology-retrieval-pipeline/binary_classifiers/settings_fiocruz.toml
+# python3 -m data.generate_binary_dataset data/fiocruz test_raw test_binary histology-retrieval-pipeline/binary_classifiers/settings_fiocruz.toml
