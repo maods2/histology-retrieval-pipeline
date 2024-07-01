@@ -9,4 +9,5 @@ val_data_path="C:/Users/Maods/Documents/Development/Mestrado/terumo/apps/embeddi
 save_embedding_path = "./embeddings/autoencoder"
 checkpoint_dir = "./checkpoints/embedding_models"
 model_name = "autoencoder"
-mode="test"
+mode="train"
+prefix="bracs_effic"

@@ -112,7 +112,7 @@ def compute_semantic_attributes(config, mode):
 
 
 
-    with open(f'{config.save_embedding_path}_{mode}.pickle', 'wb') as pickle_file:
+    with open(f'{config.prefix}_{config.save_embedding_path}_{mode}.pickle', 'wb') as pickle_file:
         pickle.dump(data_dict, pickle_file)
 
 

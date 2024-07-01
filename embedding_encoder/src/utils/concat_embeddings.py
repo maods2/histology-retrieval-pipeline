@@ -51,7 +51,7 @@ def concat(
         "classes":semantic_att['classes']
     }
 
-    with open(f'{config.basepath}{model_name}_{mode}.pickle', 'wb') as pickle_file:
+    with open(f'{config.basepath}{config.prefix}_{model_name}_{mode}.pickle', 'wb') as pickle_file:
         pickle.dump(data_dict, pickle_file)
 
 

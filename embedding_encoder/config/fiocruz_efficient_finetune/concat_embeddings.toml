@@ -4,3 +4,4 @@ embeddings_train= [ "autoencoder_train.pickle", "swav_train.pickle", "triplet_tr
 embeddings_test= [ "autoencoder_test.pickle", "swav_test.pickle", "triplet_test.pickle"]
 semantic_train = "semantic_attributes_bracs_train.pickle"
 semantic_test = "semantic_attributes_bracs_test.pickle"
+prefix="fio_effic_tune"
