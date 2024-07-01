@@ -1,0 +1,4 @@
+image_dataset_path = "C:/Users/Maods/Documents/Development/Mestrado/terumo/apps/embedding-retrieval/data/bracs-resized/train/"
+destination_path = "C:/Users/Maods/Documents/Development/Mestrado/terumo/apps/embedding-retrieval/data/bracs-resized/train/"
+destination_folders = ["0_N","1_PB","2_UDH","3_FEA","4_ADH","5_DCIS","6_IC"]
+stains = ["AZAN","PAMS", "PAS", "PICRO"]
