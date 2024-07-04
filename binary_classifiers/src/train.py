@@ -115,7 +115,7 @@ def main():
         print(f'Fold  {fold +1}')
 
         loss_fn = nn.CrossEntropyLoss()
-        model = get_model(opt.model_name, settings, PARAMS)
+        model = get_model(opt.model_name, settings, PARAMS["freeze"])
         optimizer = optim.Adam(model.parameters(), lr=PARAMS['learning_rate'])
         scaler = torch.cuda.amp.GradScaler()
         set_gpu_mode(model)

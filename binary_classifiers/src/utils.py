@@ -251,10 +251,10 @@ def wandb_log_final_result(metrics:Metrics, loss: float, config):
     #     'final_kappa': metrics.kappa           
     #     })    
 
-def get_model(model_name, settings, params):
+def get_model(model_name, settings, freeze=False):
     if model_name == "efficientnet":
-        return Net(net_version=settings.model.net_version, num_classes=2, settings=settings, freeze=params["freeze"]).to(settings.config.DEVICE)
+        return Net(net_version=settings.model.net_version, num_classes=2, settings=settings, freeze=freeze).to(settings.config.DEVICE)
     elif model_name == "dino":
-       return Dino(num_classes=2, settings=settings, freeze=params["freeze"]).to(settings.config.DEVICE)
+       return Dino(num_classes=2, settings=settings, freeze=freeze).to(settings.config.DEVICE)
     else:
         raise Exception("None model defined")

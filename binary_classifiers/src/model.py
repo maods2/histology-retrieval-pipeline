@@ -23,7 +23,7 @@ class Net(nn.Module):
 class Dino(nn.Module):
     def __init__(self, num_classes, settings, freeze: bool = False):
         super(Dino, self).__init__()
-        self.backbone = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitl14_lc')
+        self.backbone = torch.hub.load('facebookresearch/dinov2', 'dinov2_vits14_lc')
         self.linear = nn.Sequential(
             nn.Linear(settings.model.fcLayer, num_classes),
         )

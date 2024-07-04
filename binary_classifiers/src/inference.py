@@ -9,8 +9,7 @@ from PIL import Image
 from binary_classifiers.src.dataset import ImageFolderOverride
 from binary_classifiers.src.metrics import Metrics
 from binary_classifiers.src.model import Net
-from binary_classifiers.src.utils import valid_epoch
-from binary_classifiers.src.utils import load_checkpoint, load_training_parameters
+from binary_classifiers.src.utils import load_checkpoint, load_training_parameters, get_model, valid_epoch
 from binary_classifiers.src.transforms import get_test_transform
 
 
@@ -24,7 +23,7 @@ def setup_argparser() -> argparse.ArgumentParser:
 
 
 def setup_model(checkpoint_path: str, device: str,settings, **opt_params) -> tuple[Net, torch.optim.Adam]:
-    model = Net(net_version="b0", num_classes=2,settings=settings)
+    model = get_model(settings.model.name, settings)
     opt = torch.optim.Adam(model.parameters(), **opt_params)
     load_checkpoint(checkpoint_path, model, opt)
     model = model.to(device)

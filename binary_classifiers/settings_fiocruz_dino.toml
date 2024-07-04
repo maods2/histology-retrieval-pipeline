@@ -1,5 +1,6 @@
 [data_processing]
 
+#class_names = ['Hypercellularity', 'Normal', 'Membranous', 'Sclerosis',  'Podocytopathy']
 class_names = ['Hypercellularity', 'Normal', 'Membranous', 'Sclerosis', 'Crescent', 'Podocytopathy']
 data_folder = "./data"
 allowed_img_extensions = ['.jpg', '.jpeg', '.png', '.bmp', '.gif', '.tiff']
@@ -60,7 +61,7 @@ rotate_limit = [-30, 30]
 p_shift = 0.5
 
 [model]
-
+name="dino"
 net_version = "b0"
 fcLayer = 1000
 

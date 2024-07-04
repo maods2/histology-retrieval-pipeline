@@ -1,176 +1,98 @@
-Overwriting contents of directory best_model_bracs
-Using checkpoint folder:  0_N_2024-07-01-14-08-09
----------------------------- 0_N binary classifier -----------------------------
-Loaded pretrained weights for efficientnet-b0
+Overwriting contents of directory best_model_fiocruz_dino
+Using checkpoint folder:  Hypercellularity_2024-07-03-15-39-34
+---------------------- Hypercellularity binary classifier ----------------------
 => Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
 => Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
 => Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
 => Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
 => Loading checkpoint
-test/loss (mean): 119.2577089779079
-test/loss (std): 8.483554847156201
-test/accuracy (mean): 0.9199999999999999
-test/accuracy (std): 0.00633525266149745
-test/precision (mean): 0.9262011642076622
-test/precision (std): 0.0086415986513703
-test/recall (mean): 0.9199999999999999
-test/recall (std): 0.00633525266149745
-test/fscore (mean): 0.9222136128711934
-test/fscore (std): 0.006796245248319323
-test/kappa (mean): 0.6907846291571316
-test/kappa (std): 0.030897976657405277
-Best checkpoint for class 0_N was artifacts/bracs/0_N_2024-07-01-14-08-09/3_fold_min_loss_checkpoint.pth.tar. Copying to best_model_bracs...
-Using checkpoint folder:  1_PB_2024-07-01-15-28-26
----------------------------- 1_PB binary classifier ----------------------------
-Loaded pretrained weights for efficientnet-b0
+test/loss (mean): 31.529438400268553
+test/loss (std): 8.249974491661632
+test/accuracy (mean): 0.790625
+test/accuracy (std): 0.032173844190584375
+test/precision (mean): 0.8339892176961674
+test/precision (std): 0.042834627575021864
+test/recall (mean): 0.790625
+test/recall (std): 0.032173844190584375
+test/fscore (mean): 0.8036850117166422
+test/fscore (std): 0.02820846604559085
+test/kappa (mean): 0.3277379721478047
+test/kappa (std): 0.12283011774110142
+Best checkpoint for class Hypercellularity was artifacts/fiocruz_dino/Hypercellularity_2024-07-03-15-39-34/0_fold_min_loss_checkpoint.pth.tar. Copying to best_model_fiocruz_dino...
+Using checkpoint folder:  Normal_2024-07-04-05-39-48
+--------------------------- Normal binary classifier ---------------------------
 => Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
 => Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
 => Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
 => Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
 => Loading checkpoint
-test/loss (mean): 261.82020196318626
-test/loss (std): 10.069228518599235
-test/accuracy (mean): 0.8084210526315789
-test/accuracy (std): 0.013787286108342805
-test/precision (mean): 0.8411663870690591
-test/precision (std): 0.009664641183816852
-test/recall (mean): 0.8084210526315789
-test/recall (std): 0.013787286108342805
-test/fscore (mean): 0.8212128105605805
-test/fscore (std): 0.007847705311125108
-test/kappa (mean): 0.31641425006262425
-test/kappa (std): 0.02948756726288102
-Best checkpoint for class 1_PB was artifacts/bracs/1_PB_2024-07-01-15-28-26/4_fold_min_loss_checkpoint.pth.tar. Copying to best_model_bracs...
-Using checkpoint folder:  2_UDH_2024-07-01-16-49-04
---------------------------- 2_UDH binary classifier ----------------------------
-Loaded pretrained weights for efficientnet-b0
+test/loss (mean): 21.753274154663085
+test/loss (std): 5.388190087067933
+test/accuracy (mean): 0.8375
+test/accuracy (std): 0.04697905118241534
+test/precision (mean): 0.8391955020587016
+test/precision (std): 0.04854256461090043
+test/recall (mean): 0.8375
+test/recall (std): 0.04697905118241534
+test/fscore (mean): 0.829932936437039
+test/fscore (std): 0.04431618823311768
+test/kappa (mean): 0.5130826674674054
+test/kappa (std): 0.12009516711898059
+Best checkpoint for class Normal was artifacts/fiocruz_dino/Normal_2024-07-04-05-39-48/0_fold_min_loss_checkpoint.pth.tar. Copying to best_model_fiocruz_dino...
+Using checkpoint folder:  Membranous_2024-07-03-20-43-33
+------------------------- Membranous binary classifier -------------------------
 => Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
 => Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
 => Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
 => Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
 => Loading checkpoint
-test/loss (mean): 279.76625151373446
-test/loss (std): 35.47567059709238
-test/accuracy (mean): 0.8256140350877192
-test/accuracy (std): 0.017388788341563294
-test/precision (mean): 0.8279772444940805
-test/precision (std): 0.008435756594297655
-test/recall (mean): 0.8256140350877192
-test/recall (std): 0.017388788341563294
-test/fscore (mean): 0.8251135200016577
-test/fscore (std): 0.00935235882401875
-test/kappa (mean): 0.29308812998218214
-test/kappa (std): 0.03863238534927036
-Best checkpoint for class 2_UDH was artifacts/bracs/2_UDH_2024-07-01-16-49-04/0_fold_min_loss_checkpoint.pth.tar. Copying to best_model_bracs...
-Using checkpoint folder:  3_FEA_2024-07-01-18-17-19
---------------------------- 3_FEA binary classifier ----------------------------
-Loaded pretrained weights for efficientnet-b0
+test/loss (mean): 55.24367446899414
+test/loss (std): 14.221724811961405
+test/accuracy (mean): 0.8375
+test/accuracy (std): 0.021194781197266463
+test/precision (mean): 0.7876957028834174
+test/precision (std): 0.002315243026519999
+test/recall (mean): 0.8375
+test/recall (std): 0.021194781197266463
+test/fscore (mean): 0.8117329354301628
+test/fscore (std): 0.011210733613917948
+test/kappa (mean): -0.07459939212737025
+test/kappa (std): 0.022107180985050264
+Best checkpoint for class Membranous was artifacts/fiocruz_dino/Membranous_2024-07-03-20-43-33/3_fold_min_loss_checkpoint.pth.tar. Copying to best_model_fiocruz_dino...
+Using checkpoint folder:  Sclerosis_2024-07-04-01-11-14
+------------------------- Sclerosis binary classifier --------------------------
 => Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
 => Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
 => Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
 => Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
 => Loading checkpoint
-test/loss (mean): 131.51678232755512
-test/loss (std): 7.500660860847207
-test/accuracy (mean): 0.9168421052631579
-test/accuracy (std): 0.008198822067051168
-test/precision (mean): 0.9218814205655199
-test/precision (std): 0.003983068990182085
-test/recall (mean): 0.9168421052631579
-test/recall (std): 0.008198822067051168
-test/fscore (mean): 0.9186221054077265
-test/fscore (std): 0.006352021335937445
-test/kappa (mean): 0.6808457445217021
-test/kappa (std): 0.01812810415724271
-Best checkpoint for class 3_FEA was artifacts/bracs/3_FEA_2024-07-01-18-17-19/0_fold_min_loss_checkpoint.pth.tar. Copying to best_model_bracs...
-Using checkpoint folder:  4_ADH_2024-07-01-19-40-25
---------------------------- 4_ADH binary classifier ----------------------------
-Loaded pretrained weights for efficientnet-b0
+test/loss (mean): 46.03967437744141
+test/loss (std): 11.261440811558
+test/accuracy (mean): 0.7625
+test/accuracy (std): 0.018221724671391562
+test/precision (mean): 0.7461827536850739
+test/precision (std): 0.0247613412284858
+test/recall (mean): 0.7625
+test/recall (std): 0.018221724671391562
+test/fscore (mean): 0.7531915905035852
+test/fscore (std): 0.010161712544194805
+test/kappa (mean): 0.04217597960408239
+test/kappa (std): 0.08395346911588403
+Best checkpoint for class Sclerosis was artifacts/fiocruz_dino/Sclerosis_2024-07-04-01-11-14/2_fold_min_loss_checkpoint.pth.tar. Copying to best_model_fiocruz_dino...
+Using checkpoint folder:  Podocytopathy_2024-07-04-10-32-45
+----------------------- Podocytopathy binary classifier ------------------------
 => Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
 => Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
-=> Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
-=> Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
-=> Loading checkpoint
-test/loss (mean): 360.8108922354877
-test/loss (std): 49.969520969468036
-test/accuracy (mean): 0.8126315789473685
-test/accuracy (std): 0.01731073176637753
-test/precision (mean): 0.8190681978027335
-test/precision (std): 0.00507502748703438
-test/recall (mean): 0.8126315789473685
-test/recall (std): 0.01731073176637753
-test/fscore (mean): 0.8147154675514467
-test/fscore (std): 0.008566595875198387
-test/kappa (mean): 0.23686021016343695
-test/kappa (std): 0.023215517249148145
-Best checkpoint for class 4_ADH was artifacts/bracs/4_ADH_2024-07-01-19-40-25/0_fold_min_loss_checkpoint.pth.tar. Copying to best_model_bracs...
-Using checkpoint folder:  5_DCIS_2024-07-01-21-03-24
---------------------------- 5_DCIS binary classifier ---------------------------
-Loaded pretrained weights for efficientnet-b0
-=> Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
-=> Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
-=> Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
-=> Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
-=> Loading checkpoint
-test/loss (mean): 256.84373105317354
-test/loss (std): 27.876417953549566
-test/accuracy (mean): 0.8621052631578948
-test/accuracy (std): 0.010677280038388061
-test/precision (mean): 0.8652758020501764
-test/precision (std): 0.009397597470176614
-test/recall (mean): 0.8621052631578948
-test/recall (std): 0.010677280038388061
-test/fscore (mean): 0.8633559650131761
-test/fscore (std): 0.009758378397891468
-test/kappa (mean): 0.467131297937269
-test/kappa (std): 0.03812375032300249
-Best checkpoint for class 5_DCIS was artifacts/bracs/5_DCIS_2024-07-01-21-03-24/1_fold_min_loss_checkpoint.pth.tar. Copying to best_model_bracs...
-Using checkpoint folder:  6_IC_2024-07-01-22-27-15
----------------------------- 6_IC binary classifier ----------------------------
-Loaded pretrained weights for efficientnet-b0
-=> Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
-=> Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
-=> Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
-=> Loading checkpoint
-Loaded pretrained weights for efficientnet-b0
-=> Loading checkpoint
-test/loss (mean): 98.02660863986239
-test/loss (std): 20.85797604018171
-test/accuracy (mean): 0.9617543859649123
-test/accuracy (std): 0.0035782593077844215
-test/precision (mean): 0.9609515228999994
-test/precision (std): 0.003713902966802507
-test/recall (mean): 0.9617543859649123
-test/recall (std): 0.0035782593077844215
-test/fscore (mean): 0.9611541735815214
-test/fscore (std): 0.003661904429061909
-test/kappa (mean): 0.8382890519341762
-test/kappa (std): 0.015349922566262117
-Best checkpoint for class 6_IC was artifacts/bracs/6_IC_2024-07-01-22-27-15/2_fold_min_loss_checkpoint.pth.tar. Copying to best_model_bracs...
+test/loss (mean): 56.98054504394531
+test/loss (std): 2.425525665283203
+test/accuracy (mean): 0.765625
+test/accuracy (std): 0.046875
+test/precision (mean): 0.822849025974026
+test/precision (std): 0.010349025974025983
+test/recall (mean): 0.765625
+test/recall (std): 0.046875
+test/fscore (mean): 0.783203125
+test/fscore (std): 0.029296875
+test/kappa (mean): 0.28623548922056385
+test/kappa (std): 0.002653399668325007
+Best checkpoint for class Podocytopathy was artifacts/fiocruz_dino/Podocytopathy_2024-07-04-10-32-45/1_fold_min_loss_checkpoint.pth.tar. Copying to best_model_fiocruz_dino...

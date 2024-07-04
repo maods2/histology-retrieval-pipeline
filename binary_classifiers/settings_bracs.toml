@@ -60,7 +60,7 @@ rotate_limit = [-30, 30]
 p_shift = 0.5
 
 [model]
-
+name="efficientnet"
 net_version = "b0"
 fcLayer = 1280
 
