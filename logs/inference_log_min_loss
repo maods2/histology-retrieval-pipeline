@@ -1,0 +1,176 @@
+Overwriting contents of directory best_model_bracs
+Using checkpoint folder:  0_N_2024-07-01-14-08-09
+---------------------------- 0_N binary classifier -----------------------------
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+test/loss (mean): 119.2577089779079
+test/loss (std): 8.483554847156201
+test/accuracy (mean): 0.9199999999999999
+test/accuracy (std): 0.00633525266149745
+test/precision (mean): 0.9262011642076622
+test/precision (std): 0.0086415986513703
+test/recall (mean): 0.9199999999999999
+test/recall (std): 0.00633525266149745
+test/fscore (mean): 0.9222136128711934
+test/fscore (std): 0.006796245248319323
+test/kappa (mean): 0.6907846291571316
+test/kappa (std): 0.030897976657405277
+Best checkpoint for class 0_N was artifacts/bracs/0_N_2024-07-01-14-08-09/3_fold_min_loss_checkpoint.pth.tar. Copying to best_model_bracs...
+Using checkpoint folder:  1_PB_2024-07-01-15-28-26
+---------------------------- 1_PB binary classifier ----------------------------
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+test/loss (mean): 261.82020196318626
+test/loss (std): 10.069228518599235
+test/accuracy (mean): 0.8084210526315789
+test/accuracy (std): 0.013787286108342805
+test/precision (mean): 0.8411663870690591
+test/precision (std): 0.009664641183816852
+test/recall (mean): 0.8084210526315789
+test/recall (std): 0.013787286108342805
+test/fscore (mean): 0.8212128105605805
+test/fscore (std): 0.007847705311125108
+test/kappa (mean): 0.31641425006262425
+test/kappa (std): 0.02948756726288102
+Best checkpoint for class 1_PB was artifacts/bracs/1_PB_2024-07-01-15-28-26/4_fold_min_loss_checkpoint.pth.tar. Copying to best_model_bracs...
+Using checkpoint folder:  2_UDH_2024-07-01-16-49-04
+--------------------------- 2_UDH binary classifier ----------------------------
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+test/loss (mean): 279.76625151373446
+test/loss (std): 35.47567059709238
+test/accuracy (mean): 0.8256140350877192
+test/accuracy (std): 0.017388788341563294
+test/precision (mean): 0.8279772444940805
+test/precision (std): 0.008435756594297655
+test/recall (mean): 0.8256140350877192
+test/recall (std): 0.017388788341563294
+test/fscore (mean): 0.8251135200016577
+test/fscore (std): 0.00935235882401875
+test/kappa (mean): 0.29308812998218214
+test/kappa (std): 0.03863238534927036
+Best checkpoint for class 2_UDH was artifacts/bracs/2_UDH_2024-07-01-16-49-04/0_fold_min_loss_checkpoint.pth.tar. Copying to best_model_bracs...
+Using checkpoint folder:  3_FEA_2024-07-01-18-17-19
+--------------------------- 3_FEA binary classifier ----------------------------
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+test/loss (mean): 131.51678232755512
+test/loss (std): 7.500660860847207
+test/accuracy (mean): 0.9168421052631579
+test/accuracy (std): 0.008198822067051168
+test/precision (mean): 0.9218814205655199
+test/precision (std): 0.003983068990182085
+test/recall (mean): 0.9168421052631579
+test/recall (std): 0.008198822067051168
+test/fscore (mean): 0.9186221054077265
+test/fscore (std): 0.006352021335937445
+test/kappa (mean): 0.6808457445217021
+test/kappa (std): 0.01812810415724271
+Best checkpoint for class 3_FEA was artifacts/bracs/3_FEA_2024-07-01-18-17-19/0_fold_min_loss_checkpoint.pth.tar. Copying to best_model_bracs...
+Using checkpoint folder:  4_ADH_2024-07-01-19-40-25
+--------------------------- 4_ADH binary classifier ----------------------------
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+test/loss (mean): 360.8108922354877
+test/loss (std): 49.969520969468036
+test/accuracy (mean): 0.8126315789473685
+test/accuracy (std): 0.01731073176637753
+test/precision (mean): 0.8190681978027335
+test/precision (std): 0.00507502748703438
+test/recall (mean): 0.8126315789473685
+test/recall (std): 0.01731073176637753
+test/fscore (mean): 0.8147154675514467
+test/fscore (std): 0.008566595875198387
+test/kappa (mean): 0.23686021016343695
+test/kappa (std): 0.023215517249148145
+Best checkpoint for class 4_ADH was artifacts/bracs/4_ADH_2024-07-01-19-40-25/0_fold_min_loss_checkpoint.pth.tar. Copying to best_model_bracs...
+Using checkpoint folder:  5_DCIS_2024-07-01-21-03-24
+--------------------------- 5_DCIS binary classifier ---------------------------
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+test/loss (mean): 256.84373105317354
+test/loss (std): 27.876417953549566
+test/accuracy (mean): 0.8621052631578948
+test/accuracy (std): 0.010677280038388061
+test/precision (mean): 0.8652758020501764
+test/precision (std): 0.009397597470176614
+test/recall (mean): 0.8621052631578948
+test/recall (std): 0.010677280038388061
+test/fscore (mean): 0.8633559650131761
+test/fscore (std): 0.009758378397891468
+test/kappa (mean): 0.467131297937269
+test/kappa (std): 0.03812375032300249
+Best checkpoint for class 5_DCIS was artifacts/bracs/5_DCIS_2024-07-01-21-03-24/1_fold_min_loss_checkpoint.pth.tar. Copying to best_model_bracs...
+Using checkpoint folder:  6_IC_2024-07-01-22-27-15
+---------------------------- 6_IC binary classifier ----------------------------
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+Loaded pretrained weights for efficientnet-b0
+=> Loading checkpoint
+test/loss (mean): 98.02660863986239
+test/loss (std): 20.85797604018171
+test/accuracy (mean): 0.9617543859649123
+test/accuracy (std): 0.0035782593077844215
+test/precision (mean): 0.9609515228999994
+test/precision (std): 0.003713902966802507
+test/recall (mean): 0.9617543859649123
+test/recall (std): 0.0035782593077844215
+test/fscore (mean): 0.9611541735815214
+test/fscore (std): 0.003661904429061909
+test/kappa (mean): 0.8382890519341762
+test/kappa (std): 0.015349922566262117
+Best checkpoint for class 6_IC was artifacts/bracs/6_IC_2024-07-01-22-27-15/2_fold_min_loss_checkpoint.pth.tar. Copying to best_model_bracs...

@@ -8,9 +8,11 @@ import shutil
 import numpy as np
 import pandas as pd
 
-from config import settings
-from src.metrics import Metrics
-from src.inference import inference
+from binary_classifiers.src.metrics import Metrics
+from binary_classifiers.src.inference import inference
+
+from dynaconf import Dynaconf
+
 
 
 def setup_argparse() -> argparse.ArgumentParser:
@@ -21,6 +23,7 @@ def setup_argparse() -> argparse.ArgumentParser:
     parser.add_argument("--device", type=str, default="cpu")
     parser.add_argument("--mode", type=str, default="min_loss")
     parser.add_argument("--best_model_dir", type=str, default="")
+    parser.add_argument("--settings_file", type=str, default="")
     parser.add_argument("--overwrite_best_model_dir", action="store_true", default=False)
     return parser
 
@@ -65,6 +68,13 @@ def main():
     parser = setup_argparse()
     args = parser.parse_args()
 
+    settings = Dynaconf(
+    envvar_prefix="DYNACONF",
+    settings_file=f"./histology-retrieval-pipeline/binary_classifiers/settings_{args.settings_file}.toml",
+    root_path='.'
+    )
+
+
     # clear best_model_dir
     if args.best_model_dir and args.overwrite_best_model_dir:
         print(f"Overwriting contents of directory {args.best_model_dir}")
@@ -89,7 +99,8 @@ def main():
                 checkpoint_path=checkpoint,
                 test_data_dir=os.path.join(args.test_dataset_root, f"binary_{class_name}"),
                 verbose=args.verbose,
-                device=args.device
+                device=args.device,
+                settings=settings
             )
             test_losses.append(loss)
             test_metrics.append(metrics_obj)
@@ -116,7 +127,7 @@ def main():
                                  watch_metric="fscore")
 
     df = pd.DataFrame(metrics_result)
-    df.to_excel(f"./logs/metrics-{args.mode}-{str(datetime.datetime.now())}.xlsx", index=False)
+    df.to_excel(f"./{args.best_model_dir}/metrics-{args.mode}-{str(datetime.datetime.now())}.xlsx", index=False)
 
 if __name__ == '__main__':
     main()

@@ -6,12 +6,12 @@ import albumentations as A
 
 from PIL import Image
 
-from src.dataset import ImageFolderOverride
-from src.metrics import Metrics
-from src.model import Net
-from src.utils import valid_epoch
-from src.utils import load_checkpoint, load_training_parameters
-from src.transforms import get_test_transform
+from binary_classifiers.src.dataset import ImageFolderOverride
+from binary_classifiers.src.metrics import Metrics
+from binary_classifiers.src.model import Net
+from binary_classifiers.src.utils import valid_epoch
+from binary_classifiers.src.utils import load_checkpoint, load_training_parameters
+from binary_classifiers.src.transforms import get_test_transform
 
 
 def setup_argparser() -> argparse.ArgumentParser:
@@ -23,8 +23,8 @@ def setup_argparser() -> argparse.ArgumentParser:
     return parser
 
 
-def setup_model(checkpoint_path: str, device: str, **opt_params) -> tuple[Net, torch.optim.Adam]:
-    model = Net(net_version="b0", num_classes=2)
+def setup_model(checkpoint_path: str, device: str,settings, **opt_params) -> tuple[Net, torch.optim.Adam]:
+    model = Net(net_version="b0", num_classes=2,settings=settings)
     opt = torch.optim.Adam(model.parameters(), **opt_params)
     load_checkpoint(checkpoint_path, model, opt)
     model = model.to(device)
@@ -43,15 +43,15 @@ def log_inference(loss: float, metrics: Metrics, total_samples: int) -> None:
 def inference(checkpoint_path: str,
               test_data_dir: str,
               device: str = "cpu",
-              verbose: bool = True) -> tuple[float, int, Metrics]:
-    model = setup_model(checkpoint_path, device)
+              verbose: bool = True, settings=None) -> tuple[float, int, Metrics]:
+    model = setup_model(checkpoint_path, device,settings)
 
     def in_the_wild_loader(path: str) -> np.ndarray:
         rgb_image = Image.open(path).convert("RGB")
         return np.asarray(rgb_image)
 
     test_dataset = ImageFolderOverride(root=test_data_dir,
-                                       transform=get_test_transform(),
+                                       transform=get_test_transform(settings),
                                        target_transform=lambda index: index,
                                        loader=in_the_wild_loader)
     test_dataloader = torch.utils.data.DataLoader(dataset=test_dataset,
@@ -74,4 +74,4 @@ def inference(checkpoint_path: str,
 if __name__ == "__main__":
     parser = setup_argparser()
     args = parser.parse_args()
-    inference(args.checkpoint, args.test_dataset, args.device, args.verbose)
+    inference(args.checkpoint, args.test_dataset, args.device, args.verbose,settings)

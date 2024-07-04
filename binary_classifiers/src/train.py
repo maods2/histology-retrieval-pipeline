@@ -104,12 +104,12 @@ def main():
         train_subset = Subset(full_dataset_train_mode, train_ids)
         sampler = get_balanced_dataset_sampler(full_dataset_train_mode, train_ids, train_subset)
         train_loader = DataLoader(train_subset,
-                                  batch_size=PARAMS['batch_size'],
+                                  batch_size=32,
                                   sampler=sampler,
                                   num_workers=PARAMS['num_workers'])
         val_subset = Subset(full_dataset_val_mode, val_ids)
         val_loader = DataLoader(val_subset,
-                                batch_size=PARAMS['batch_size'],
+                                batch_size=32,
                                 num_workers=PARAMS['num_workers'],
                                 shuffle=True)
         print(f'Fold  {fold +1}')
@@ -118,7 +118,7 @@ def main():
         model = get_model(opt.model_name, settings, PARAMS)
         optimizer = optim.Adam(model.parameters(), lr=PARAMS['learning_rate'])
         scaler = torch.cuda.amp.GradScaler()
-        # set_gpu_mode(model)
+        set_gpu_mode(model)
 
         if PARAMS['load_model']:
             load_checkpoint(torch.load(PARAMS['checkpoint_to_be_loaded']), model, optimizer)

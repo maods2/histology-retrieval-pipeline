@@ -34,4 +34,3 @@ class Dino(nn.Module):
 
     def forward(self, x):
         return self.linear(self.backbone(x))
-    
