@@ -1,20 +1,21 @@
-model = "efficientnet"
-embedding_dim = 1280
+
+model = "dino"
+embedding_dim = 1000
 pipeline = 0
 train = false
 batch_size = 128
-data_path="./data/fiocruz/test_raw"
-save_embedding_path = "./embeddings/semantic_efficient_friocruz"
-semantic_basepath = "./best_model_fiocruz/"
+data_path="data/fiocruz/test_raw"
+save_embedding_path = "./embeddings/semantic_dino_friocruz"
+semantic_basepath = "./best_model_fiocruz_dino/"
 semantic_models_path = ["Crescent", "Hypercellularity", "Membranous", "Normal", "Podocytopathy", "Sclerosis"]
 num_att = 7
 mode = "test"
-prefix="fiocruz_efficient_finetune"
+prefix="fiocruz_dino_finetune"
 
 
-name="efficientnet"
+name="dino"
 net_version = "b0"
-fcLayer = 1280
+fcLayer = 1000
 mean = [0.485, 0.456, 0.406]
 std = [0.229, 0.224, 0.225]
 img_size = [224, 224]

@@ -12,3 +12,8 @@ triplet_dataset_classes=['Hypercellularity', 'Normal', 'Membranous', 'Sclerosis'
 triplet_categories_num = 6
 prefix="fiocruz_efficient_finetune"
 model_name = "triplet"
+
+[model]
+mean = [0.485, 0.456, 0.406]
+std = [0.229, 0.224, 0.225]
+img_size = [224, 224]

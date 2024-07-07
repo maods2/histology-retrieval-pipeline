@@ -29,9 +29,11 @@ if args.pipeline == "train":
     train_and_save_embeddings(config)
 
 elif args.pipeline == "compute_embedding":
+
     compute_embeddings(config, config.mode)
 
 elif args.pipeline == "compute_semantic_attributes":
+    print(f"\n\ncompute embedding: {config.save_embedding_path} - {config.mode}")
     compute_semantic_attributes(config, config.mode)
     
 elif args.pipeline == "concat":

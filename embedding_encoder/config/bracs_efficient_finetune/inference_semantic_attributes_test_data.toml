@@ -1,13 +1,26 @@
-model = "efficientnetb0"
+
+model = "efficientnet"
 embedding_dim = 1280
 pipeline = 0
 train = false
 batch_size = 128
-data_path="C:/Users/Maods/Documents/Development/Mestrado/terumo/apps/embedding-retrieval/data/bracs-resized/test"
-save_embedding_path = "C:/Users/Maods/Documents/Development/Mestrado/terumo/apps/embedding-retrieval/embeddings/semantic_attributes_bracs"
-semantic_basepath = "C:/Users/Maods/Documents/Development/Mestrado/terumo/apps/embedding-retrieval/binarios/"
-semantic_models_path = [ "0_N-2024-06-12 18_20_27.517500-1_fold_min_loss_checkpoint.pth.tar", "1_PB-2024-06-12 18_20_33.944331-2_fold_min_loss_checkpoint.pth.tar", "2_UDH-2024-06-12 18_20_40.314127-2_fold_min_loss_checkpoint.pth.tar", "3_FEA-2024-06-12 18_20_46.684789-2_fold_min_loss_checkpoint.pth.tar", "4_ADH-2024-06-12 18_20_53.036648-3_fold_min_loss_checkpoint.pth.tar", "5_DCIS-2024-06-12 18_20_59.363981-3_fold_min_loss_checkpoint.pth.tar", "6_IC-2024-06-12 18_21_05.762151-1_fold_min_loss_checkpoint.pth.tar"]
+data_path="data/bracs/test"
+save_embedding_path = "./embeddings/semantic_efficient_bracs"
+semantic_basepath = "./best_model_bracs/"
+semantic_models_path = ["0_N", "1_PB", "2_UDH", "3_FEA", "4_ADH", "5_DCIS", "6_IC"]
 num_att = 7
-mode = "test"
-prefix="bracs_effic"
-load_checkpoint=True
+mode = "train"
+prefix="bracs_efficient"
+load_checkpoint=true
+
+
+name="efficientnet"
+net_version = "b0"
+fcLayer = 1280
+mean = [0.485, 0.456, 0.406]
+std = [0.229, 0.224, 0.225]
+img_size = [224, 224]
+
+
+device = "cuda"
+sclerosis_segmentation = false

@@ -166,3 +166,4 @@ wandb/
 *.tar
 
 *.pickle
+*.pth

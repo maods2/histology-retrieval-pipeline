@@ -1,25 +1,6 @@
-from datetime import datetime
-import sys
-
-
-from utils.dataset import ImageDataLoader
-from torch.utils.data import DataLoader
-from utils.utils import slice_image_paths
-import matplotlib.pyplot as plt
-import pickle
 import torch
-import torchvision
 from efficientnet_pytorch import EfficientNet
-import numpy as np
-
-from lightly import loss
-
-from lightly.data import LightlyDataset
-
-from lightly.loss import SwaVLoss
 from lightly.models.modules import SwaVProjectionHead, SwaVPrototypes
-from lightly.transforms.swav_transform import SwaVTransform
-
 
 
 class SwaV(torch.nn.Module):

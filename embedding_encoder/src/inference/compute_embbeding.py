@@ -17,9 +17,9 @@ def load_model_weights(model, model_path,device):
 def compute_embeddings(config, mode, model=None):
     # Load data
     if mode == "train":
-        data = ImageDataLoader(config.data_path)
+        data = ImageDataLoader(config.data_path, config)
     elif mode == "test":
-        data = ImageDataLoader(config.val_data_path)
+        data = ImageDataLoader(config.val_data_path, config)
     else:
         raise Exception("Embedding computation mode not set")
 

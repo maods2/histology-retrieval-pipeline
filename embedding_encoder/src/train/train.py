@@ -1,13 +1,9 @@
-from utils.dataset import ImageDataLoader
-from torch.utils.data import DataLoader
 from models.model_selector import get_model
 from pipelines.pipeline_selector import get_pipeline
-from utils.options import BaseOptions, Config, load_parameters
 from utils.utils import save_checkpoint
 from inference.compute_embbeding import compute_embeddings
-import torch
 import numpy as np
-import pickle
+
 
 
 

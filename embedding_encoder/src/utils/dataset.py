@@ -5,12 +5,12 @@ from typing import Callable, Optional, Tuple, Any
 
 
 class ImageDataLoader:
-    def __init__(self, data_dir):
+    def __init__(self, data_dir, config):
         self.data_dir = data_dir
         self.transform = transforms.Compose([
             transforms.Resize((224, 224)),
             transforms.ToTensor(),
-            transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
+            transforms.Normalize(mean=config.model.mean, std=config.model.std)
         ])
         self.dataset = CustomImageFolder(
             self.data_dir, transform=self.transform, target_transform=self._get_class_name)

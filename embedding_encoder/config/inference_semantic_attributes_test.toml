@@ -1,16 +1,15 @@
-
 model = "efficientnet"
 embedding_dim = 1280
 pipeline = 0
 train = false
 batch_size = 128
 data_path="data/debug"
-save_embedding_path = "./embeddings/semantic_efficient_bracs"
+save_embedding_path = "./embeddings/semantic_efficient_test"
 semantic_basepath = "./best_model_bracs/"
 semantic_models_path = ["0_N", "1_PB", "2_UDH", "3_FEA", "4_ADH", "5_DCIS", "6_IC"]
 num_att = 7
 mode = "train"
-prefix="bracs_efficient"
+prefix="test_efficient"
 load_checkpoint=true
 
 
@@ -21,7 +20,6 @@ mean = [0.485, 0.456, 0.406]
 std = [0.229, 0.224, 0.225]
 img_size = [224, 224]
 
-
-
 device = "cuda"
-sclerosis_segmentation = false
+
+sclerosis_segmentation = true

@@ -79,6 +79,26 @@ test/fscore (std): 0.010161712544194805
 test/kappa (mean): 0.04217597960408239
 test/kappa (std): 0.08395346911588403
 Best checkpoint for class Sclerosis was artifacts/fiocruz_dino/Sclerosis_2024-07-04-01-11-14/2_fold_min_loss_checkpoint.pth.tar. Copying to best_model_fiocruz_dino...
+Using checkpoint folder:  Crescent_2024-07-05-14-01-26
+-------------------------- Crescent binary classifier --------------------------
+=> Loading checkpoint
+=> Loading checkpoint
+=> Loading checkpoint
+=> Loading checkpoint
+=> Loading checkpoint
+test/loss (mean): 38.94189224243164
+test/loss (std): 8.233964657785632
+test/accuracy (mean): 0.80625
+test/accuracy (std): 0.03644344934278313
+test/precision (mean): 0.7958399993750203
+test/precision (std): 0.009121032875001782
+test/recall (mean): 0.80625
+test/recall (std): 0.03644344934278313
+test/fscore (mean): 0.7893826018438861
+test/fscore (std): 0.018778864905890983
+test/kappa (mean): 0.279950434708438
+test/kappa (std): 0.029163756821790558
+Best checkpoint for class Crescent was artifacts/fiocruz_dino/Crescent_2024-07-05-14-01-26/0_fold_min_loss_checkpoint.pth.tar. Copying to best_model_fiocruz_dino...
 Using checkpoint folder:  Podocytopathy_2024-07-04-10-32-45
 ----------------------- Podocytopathy binary classifier ------------------------
 => Loading checkpoint
