@@ -1,4 +1,5 @@
 
+from pathlib import Path
 import numpy as np
 import torch
 import pandas as pd
@@ -51,22 +52,26 @@ def concat(
         "classes":semantic_att['classes']
     }
 
-    with open(f'{config.basepath}{config.prefix}_{model_name}_{mode}.pickle', 'wb') as pickle_file:
+    path = f'{config.save_embedding_path}/'
+    Path(path).mkdir(parents=True, exist_ok=True)
+
+    with open(f'{path}/{config.prefix}_{model_name}_{mode}.pickle', 'wb') as pickle_file:
         pickle.dump(data_dict, pickle_file)
+
 
 
 def concat_embeddings(config):
 
-    path_test = config.basepath + config.semantic_test
-    path_train = config.basepath + config.semantic_train
+    path_test = config.sem_basepath + config.semantic_test
+    path_train = config.sem_basepath + config.semantic_train
     _, _, semant_result_test = load_embeddings(path_test)
     _, _, semant_result_train = load_embeddings(path_train)
 
     for path_train, path_test in zip(config.embeddings_train, config.embeddings_test ):
     
 
-        _, _, emb_result_train = load_embeddings(config.basepath + path_train)
-        _, _, emb_result_test = load_embeddings(config.basepath + path_test)
+        _, _, emb_result_train = load_embeddings(config.emb_basepath + path_train)
+        _, _, emb_result_test = load_embeddings(config.emb_basepath + path_test)
 
 
         concat(

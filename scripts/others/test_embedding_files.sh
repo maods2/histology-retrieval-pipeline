@@ -1,0 +1,1 @@
+python3 ./embedding_encoder/src/utils/test_embeddings.py

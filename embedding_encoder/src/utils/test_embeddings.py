@@ -21,5 +21,5 @@ for root, subdirs, files in os.walk(base_path):
             print("OK")
         except AssertionError:
             print("ERROR")
-            print(f"{trainfile}: {dict.fromkeys(train_data['classes'])}")
-            print(f"{testfile}: {dict.fromkeys(test_data['classes'])}")
+            print(f"{os.path.join(root, trainfile)}: {dict.fromkeys(train_data['classes'])}")
+            print(f"{os.path.join(root, trainfile)}: {dict.fromkeys(test_data['classes'])}")
